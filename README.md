@@ -19,7 +19,8 @@ The lab demonstrates:
 
 
 
-<img width="816" height="1163" alt="Screenshot 2026-04-09 161028" src="https://github.com/user-attachments/assets/41690f2c-c41f-4b67-a332-03f9c64c61b8" />
+<img width="816" height="1163" alt="Screenshot 2026-04-09 161028" src="https://github.com/user-attachments/assets/71432b66-3696-4dce-a4a9-349e73fb1b3a" />
+
 
 
 
