@@ -897,7 +897,7 @@ If the HR Portal does not load:
 New-NetFirewallRule -DisplayName "Honeypot HTTP" -Direction Inbound -Protocol TCP -LocalPort 80 -Action Allow
 ```
 
-Elastic Agent Not Showing in Fleet
+###Elastic Agent Not Showing in Fleet
 
 If an agent is missing or offline:
 
