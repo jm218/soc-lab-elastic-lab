@@ -2,6 +2,8 @@
 
 This project is a full end‑to‑end SOC lab designed to simulate real attacker behavior against a public‑facing HR web portal (honeypot) hosted in AWS. Telemetry from the honeypot and multiple Active Directory–joined Windows endpoints is shipped to Elastic Security for detection, alerting, and investigation.
 
+
+
 The lab demonstrates:
 
 - Building an AWS VPC and EC2 infrastructure  
@@ -11,7 +13,8 @@ The lab demonstrates:
 - Shipping honeypot + endpoint logs to Elastic Cloud  
 - Triggering and investigating detection rules  
 - Analyzing suspicious process chains  
-- Using geo‑enriched honeypot data  
+- Using geo‑enriched honeypot data
+- simulates both external (honeypot) and internal (AD endpoint) attack surfaces to demonstrate full-spectrum SOC visibility.
 
 ---
 
@@ -720,7 +723,7 @@ Stop-Process -Id $np.Id -Force
 
 ## 10.2 Why This Is Suspicious
 
-- Notepad should usally **never** spawn PowerShell  
+- Notepad should usually **never** spawn PowerShell  
 - Attackers use LOLBins to evade detection  
 - Elastic Defend flags this as:
   - Execution  
@@ -807,14 +810,14 @@ Stop-Process -Id $np.Id -Force
 
 
 > **Analyst Workflow Note:**  
-> These views give the SOC analyst possible info needed to triage and escalate the alert:  
+> These views give the SOC analyst the information needed:  
 > - Device IP  
 > - Hostname  
 > - User account  
 > - Command line  
 > - Process tree  
 > - Related logs
-> - Process.Pid and Process.parent.Pid
+> - Process ID and Parent Process ID
 > Together, these fields form the starting point for a Tier 1 → Tier 2 escalation and help determine whether the activity is benign, suspicious, or malicious.
 
 
