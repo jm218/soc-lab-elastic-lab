@@ -826,7 +826,7 @@ Stop-Process -Id $np.Id -Force
 To make sure the lab generates meaningful telemetry and alerts:
 
 - Allow inbound HTTP/HTTPS to the honeypot Security Group  
-- Allow RDP only from your public IP or all(controlled)
+- Allow RDP only from your public IP (avoid 0.0.0.0/0 unless controlled testing)
 - Ensure Windows Firewall on each VM allows outbound HTTPS for Elastic Agent  
 - Verify Elastic Defend is enabled in the Agent Policy  
 - Create or enable detection rules for:
@@ -877,10 +877,12 @@ Created as a hands‑on SOC learning environment using:
 
 ## Troubleshooting Guide
 
+This section covers common issues encountered when building and testing the SOC lab environment, including connectivity, logging, and detection problems.
+
 ### EC2 Connectivity Issues
 If your EC2 instances cannot talk to each other or the honeypot does not load, verify the Security Groups:
 
-- Ensure each instance allows inbound traffic from the other instances’ Security Groups.
+- Ensure Security Groups allow inbound traffic from other instances within the same VPC or SG.
 - Allow RDP (3389) only from your public IP.
 - Ensure the honeypot instance allows inbound HTTP (80) and HTTPS (443) from 0.0.0.0/0.
 
