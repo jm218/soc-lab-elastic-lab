@@ -941,6 +941,7 @@ If the map is empty:
 
 If the GeoLite2 database is not installed, the honeypot will still function, but geo fields (country, city, coordinates) will be set to `"Unknown"`.
 
+
 ### GeoIP Not Showing in Elastic
 
 GeoIP enrichment is optional.
