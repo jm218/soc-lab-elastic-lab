@@ -1,4 +1,4 @@
-# SOC Lab: Elastic Security + AWS Honeypot + Active Directory Endpoints
+## SOC Lab: Elastic Security + AWS Honeypot + Active Directory Endpoints
 
 This project is a full end‑to‑end SOC lab designed to simulate real attacker behavior against a public‑facing HR web portal (honeypot) hosted in AWS. Telemetry from the honeypot and multiple Active Directory–joined Windows endpoints is shipped to Elastic Security for detection, alerting, and investigation.
 
@@ -18,7 +18,7 @@ The lab demonstrates:
 
 ---
 
-# 2. Architecture Diagram
+## 2. Architecture Diagram
 
 
 
@@ -29,7 +29,7 @@ The lab demonstrates:
 
 ---
 
-# 3. AWS Setup (VPC + EC2 Infrastructure)
+## 3. AWS Setup (VPC + EC2 Infrastructure)
 
 ## 3.1 Create the VPC
 
