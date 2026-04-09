@@ -897,12 +897,14 @@ If the HR Portal does not load:
 New-NetFirewallRule -DisplayName "Honeypot HTTP" -Direction Inbound -Protocol TCP -LocalPort 80 -Action Allow
 ```
 
-### Elastic Agent Not Showing in Fleet
+Elastic Agent Not Showing in Fleet
+
 If an agent is missing or offline:
 
-- Confirm the VM has internet access.
-- Re-run the Elastic Agent install command with the correct enrollment token.
-- Ensure no local firewall is blocking outbound traffic on ports 443 or 8220.
+- Confirm the VM has internet access
+- Re-run the Elastic Agent install command with the correct enrollment token
+- Ensure outbound traffic is allowed on port 443 (required) and port 8220 (if using Fleet Server)
+- Verify DNS resolution is working
 
 ### Honeypot Files Not Appearing in the HR Portal
 If the Shared Documents list is empty:
@@ -933,4 +935,27 @@ If the map is empty:
 - Ensure the honeypot is receiving real external traffic.
 - Confirm the honeypot logs include the client IP field.
 - Verify the ingest pipeline is enabled in your Elastic policy.
+
+
+- Ensure the path matches the `GEO_DB_PATH` defined in the honeypot script
+
+If the GeoLite2 database is not installed, the honeypot will still function, but geo fields (country, city, coordinates) will be set to `"Unknown"`.
+
+### GeoIP Not Showing in Elastic
+
+GeoIP enrichment is optional.
+
+If geographic data is missing from honeypot logs:
+
+- Download the **GeoLite2 City** database from MaxMind  
+- Place the file at:
+  C:\HoneypotEngine\GeoLite2-City.mmdb
+
+  
+- Ensure the path matches the `GEO_DB_PATH` defined in the honeypot script
+
+If the GeoLite2 database is not installed, the honeypot will still function, but geo fields (country, city, coordinates) will be set to `"Unknown"`.
+
+
+
 
