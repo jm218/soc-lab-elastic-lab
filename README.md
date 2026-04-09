@@ -818,6 +818,7 @@ Stop-Process -Id $np.Id -Force
  - Process tree  
  - Related logs
  - Process ID and Parent Process ID
+   
  Together, these fields form the starting point for a Tier 1 → Tier 2 escalation and help determine whether the activity is benign, suspicious, or malicious.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
