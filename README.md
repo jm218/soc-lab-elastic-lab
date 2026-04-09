@@ -808,7 +808,7 @@ Stop-Process -Id $np.Id -Force
   
  This helps decide whether to escalate the alert to a higher tier or initiate containment.
 
-
+--------------------------------------------------------------------------------------------
  **Analyst Workflow Note:**  
  These views give the SOC analyst the information needed:  
  - Device IP  
@@ -820,9 +820,7 @@ Stop-Process -Id $np.Id -Force
  - Process ID and Parent Process ID
  Together, these fields form the starting point for a Tier 1 → Tier 2 escalation and help determine whether the activity is benign, suspicious, or malicious.
 
-
-
-
+------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 To make sure the lab generates meaningful telemetry and alerts:
 
