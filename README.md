@@ -17,12 +17,11 @@ The lab demonstrates:
 
 # 2. Architecture Diagram
 
-> **INSERT YOUR DIAGRAM IMAGE HERE**
 
-```
+
 <img width="816" height="1163" alt="Screenshot 2026-04-09 161028" src="https://github.com/user-attachments/assets/41690f2c-c41f-4b67-a332-03f9c64c61b8" />
 
-```
+
 
 ---
 
@@ -55,13 +54,11 @@ All machines must be in the **same VPC**, but the honeypot will use a **separate
 - Install **AD DS**, **DNS**, **File Services**  
 - Promote to domain controller (`lab.local`)  
 
-> **INSERT SERVER MANAGER IMAGE HERE**
 
-```
+
 <img width="1240" height="1135" alt="Screenshot 2026-04-09 124326" src="https://github.com/user-attachments/assets/af474e53-9d5f-4e8c-bd4d-4c1b12816491" />
 
 
-```
 
 ## 4.2 Join Windows Endpoints to AD
 
@@ -73,12 +70,12 @@ Endpoints:
 - CORP-ITADMIN  
 
 
-> **INSERT AD COMPUTERS IMAGE HERE**
 
-```
+
+
 <img width="932" height="613" alt="Screenshot 2026-04-09 124349" src="https://github.com/user-attachments/assets/8cdc30ea-07ad-4116-b6f7-6e923017f7f2" />
 
-```
+
 
 ---
 
@@ -99,12 +96,10 @@ Add integrations:
 - System  
 - Custom Logs (for honeypot)  
 
-> **INSERT AGENT POLICY IMAGE HERE**
 
-```
 <img width="1368" height="711" alt="Screenshot 2026-04-09 124221" src="https://github.com/user-attachments/assets/6bac0e68-9654-4cff-a90d-d98804a83597" />
 
-```
+
 
 ---
 
@@ -116,12 +111,9 @@ Install Elastic Agent on:
 - All AD‑joined Windows endpoints  
 - **Honeypot EC2 instance** (this is where the Python listener will run)
 
-> **INSERT FLEET AGENTS IMAGE HERE**
 
-```
 <img width="2519" height="1429" alt="Screenshot 2026-04-09 112220" src="https://github.com/user-attachments/assets/1390c955-1358-480d-ac93-0d236ebd1d54" />
 
-```
 
 ---
 
@@ -594,12 +586,10 @@ Main page: http://<server-ip>/
 
 ## 7.6 Verify Honeypot Frontend
 
-> **INSERT HR PORTAL IMAGE HERE**
 
-```
+
 <img width="2173" height="1480" alt="Screenshot 2026-04-09 124138" src="https://github.com/user-attachments/assets/cfe53b1d-c120-4e44-8ee0-cc0398bc2c40" />
 
-```
 
 ---
 
@@ -607,27 +597,20 @@ Main page: http://<server-ip>/
 
 ## 8.1 Discover View (Honeypot Logs)
 
-> **INSERT DISCOVER HONEYPOT IMAGE HERE**
 
-```
+
 <img width="1996" height="1320" alt="Screenshot 2026-04-09 141852 - Copy" src="https://github.com/user-attachments/assets/4c958bea-1ddc-4f21-bbfd-4a930d00349d" />
 
-```
+
 
 ## 8.2 Geo Maps
 
-> **INSERT US MAP IMAGE HERE**
-
-```
+US-Map
 <img width="1814" height="1150" alt="Screenshot 2026-04-09 155413" src="https://github.com/user-attachments/assets/56e4a02c-a995-4f5c-b281-7b72b5a75525" />
-```
 
-> **INSERT EU MAP IMAGE HERE**
-
-
-```
+EU-Map
 <img width="1823" height="1152" alt="Screenshot 2026-04-09 155454" src="https://github.com/user-attachments/assets/a608bbe7-67e4-4ea1-8090-a90648ce55cb" />
-```
+
 
 
 # 9. Detection Rules
@@ -639,12 +622,10 @@ Elastic Security rules used:
 - Suspicious Binary Masquerading + Unusual Parent  
 - Suspicious Process Chain  
 
-> **INSERT DETECTION RULES IMAGE HERE**
 
-```
 <img width="2394" height="1311" alt="Screenshot 2026-04-09 132711" src="https://github.com/user-attachments/assets/49cd56b2-faac-4e8f-9227-50bc529b62c4" />
 
-```
+
 
 ---
 
@@ -678,40 +659,40 @@ Stop-Process -Id $np.Id -Force
 
 ## 11.1 Alerts Summary
 
-```
+
 <img width="696" height="569" alt="Screenshot 2026-04-09 155922" src="https://github.com/user-attachments/assets/50489375-61d2-4066-9a2e-f227ec61d5c9" />
-```
+
 
 ## 11.2 Command Line Details
 
-```
+
 <img width="605" height="1145" alt="Screenshot 2026-04-09 155946" src="https://github.com/user-attachments/assets/479f3209-05f8-464b-b78d-f43d56b85552" />
 
-```
+
 
 ## 11.3 User Context
 
-```
+
 <img width="594" height="905" alt="Screenshot 2026-04-09 155956" src="https://github.com/user-attachments/assets/5a4c9cc9-2774-4b56-91a4-932920bb6dc3" />
 
-```
+
 
 ## 11.4 Host Context
 
-```
+
 <img width="614" height="625" alt="Screenshot 2026-04-09 160008" src="https://github.com/user-attachments/assets/5c59fc9f-86d4-4b8a-a7c1-299ef31445c4" />
 
-```
+
 
 ---
 
 # 12. Fleet Coverage Verification
 
-```
-<img src="YOUR-LINK-HERE" />
-```
 
----
+<img src="YOUR-LINK-HERE" />
+
+
+
 
 # 13. What This Lab Demonstrates
 
