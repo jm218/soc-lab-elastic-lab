@@ -659,7 +659,9 @@ Main page: http://<server-ip>/
 
 
 
-<img width="1996" height="1320" alt="Screenshot 2026-04-09 141852 - Copy" src="https://github.com/user-attachments/assets/4c958bea-1ddc-4f21-bbfd-4a930d00349d" />
+<img width="2410" height="1004" alt="Screenshot 2026-04-09 170937" src="https://github.com/user-attachments/assets/5c86a1e4-4aed-4e8b-9e03-e64dd2eb8992" />
+
+
 
 
 
