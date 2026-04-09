@@ -740,16 +740,16 @@ Stop-Process -Id $np.Id -Force
 
 <img width="696" height="569" alt="Screenshot 2026-04-09 155922" src="https://github.com/user-attachments/assets/50489375-61d2-4066-9a2e-f227ec61d5c9" />
 
-> **Why this view matters:**  
-> This is the analyst’s first stop. It confirms the alert fired, shows severity, and gives the initial context needed to decide whether to escalate.  
-> Key things to check here:  
-> - Hostname involved  
-> - User account  
-> - Timestamp  
-> - Rule name + mapped MITRE technique  
-> - Whether similar alerts fired on the same host  
->  
-> This helps the analyst quickly determine if the activity is isolated, repeated, or part of a larger pattern.
+ **Why this view matters:**  
+ This is the analyst’s first stop. It confirms the alert fired, shows severity, and gives the initial context needed to decide whether to escalate.  
+ Key things to check here:  
+ - Hostname involved  
+ - User account  
+ - Timestamp  
+ - Rule name + mapped MITRE technique  
+ - Whether similar alerts fired on the same host  
+  
+ This helps the analyst quickly determine if the activity is isolated, repeated, or part of a larger pattern.
 
 
 ## 11.2 Command Line Details
@@ -757,17 +757,17 @@ Stop-Process -Id $np.Id -Force
 
 <img width="605" height="1145" alt="Screenshot 2026-04-09 155946" src="https://github.com/user-attachments/assets/479f3209-05f8-464b-b78d-f43d56b85552" />
 
-> **Why this view matters:**  
-> The command line is one of the most important fields in endpoint investigations.  
-> It shows *exactly* what executed, with what arguments, and whether the behavior matches known attacker tradecraft.  
->  
-> Key things to extract:  
-> - Full command line  
-> - Parent → child process relationship  
-> - Any LOLBins or suspicious flags  
-> - Whether execution was hidden or scripted  
->  
-> This is often the deciding factor for whether an alert is benign or malicious.
+ **Why this view matters:**  
+ The command line is one of the most important fields in endpoint investigations.  
+ It shows *exactly* what executed, with what arguments, and whether the behavior matches known attacker tradecraft.  
+   
+ Key things to extract:  
+ - Full command line  
+ - Parent → child process relationship  
+ - Any LOLBins or suspicious flags  
+ - Whether execution was hidden or scripted  
+  
+ This is often the deciding factor for whether an alert is benign or malicious.
 
 
 
@@ -777,16 +777,16 @@ Stop-Process -Id $np.Id -Force
 
 <img width="594" height="905" alt="Screenshot 2026-04-09 155956" src="https://github.com/user-attachments/assets/5a4c9cc9-2774-4b56-91a4-932920bb6dc3" />
 
-> **Why this view matters:**  
-> Identifying *who* executed the process is critical for triage.  
->  
-> Analysts check:  
-> - Was it a normal user or an admin  
-> - Was the account active at the time  
-> - Does the user normally run PowerShell  
-> - Any signs of credential misuse  
->  
-> This helps determine whether the activity is expected behavior or a compromised account.
+ **Why this view matters:**  
+ Identifying *who* executed the process is critical for triage.  
+  
+ Analysts check:  
+ - Was it a normal user or an admin  
+ - Was the account active at the time  
+ - Does the user normally run PowerShell  
+ - Any signs of credential misuse  
+  
+ This helps determine whether the activity is expected behavior or a compromised account.
 
 
 
@@ -796,29 +796,29 @@ Stop-Process -Id $np.Id -Force
 
 <img width="614" height="625" alt="Screenshot 2026-04-09 160008" src="https://github.com/user-attachments/assets/5c59fc9f-86d4-4b8a-a7c1-299ef31445c4" />
 
-> **Why this view matters:**  
-> Host context shows the broader environment around the alert.  
->  
-> Analysts use this to gather:  
-> - Device IP  
-> - Hostname  
-> - OS version  
-> - Other recent alerts on the same machine  
-> - Whether the host is high‑value (DC, admin workstation, finance machine)  
->  
-> This helps decide whether to escalate the alert to a higher tier or initiate containment.
+ **Why this view matters:**  
+ Host context shows the broader environment around the alert.  
+  
+ Analysts use this to gather:  
+ - Device IP  
+ - Hostname  
+ - OS version  
+ - Other recent alerts on the same machine  
+ - Whether the host is high‑value (DC, admin workstation, finance machine)  
+  
+ This helps decide whether to escalate the alert to a higher tier or initiate containment.
 
 
-> **Analyst Workflow Note:**  
-> These views give the SOC analyst the information needed:  
-> - Device IP  
-> - Hostname  
-> - User account  
-> - Command line  
-> - Process tree  
-> - Related logs
-> - Process ID and Parent Process ID
-> Together, these fields form the starting point for a Tier 1 → Tier 2 escalation and help determine whether the activity is benign, suspicious, or malicious.
+ **Analyst Workflow Note:**  
+ These views give the SOC analyst the information needed:  
+ - Device IP  
+ - Hostname  
+ - User account  
+ - Command line  
+ - Process tree  
+ - Related logs
+ - Process ID and Parent Process ID
+ Together, these fields form the starting point for a Tier 1 → Tier 2 escalation and help determine whether the activity is benign, suspicious, or malicious.
 
 
 
