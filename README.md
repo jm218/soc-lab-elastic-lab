@@ -930,33 +930,21 @@ Restart-Service elastic-agent
 ```
 
 ### GeoIP Not Showing in Elastic
-If the map is empty:
-
-- Ensure the honeypot is receiving real external traffic.
-- Confirm the honeypot logs include the client IP field.
-- Verify the ingest pipeline is enabled in your Elastic policy.
-
-
-- Ensure the path matches the `GEO_DB_PATH` defined in the honeypot script
-
-If the GeoLite2 database is not installed, the honeypot will still function, but geo fields (country, city, coordinates) will be set to `"Unknown"`.
-
-
-### GeoIP Not Showing in Elastic
 
 GeoIP enrichment is optional.
 
-If geographic data is missing from honeypot logs:
+If the map is empty or geographic data is missing:
+
+- Ensure the honeypot is receiving real external traffic  
+- Confirm the honeypot logs include the client IP field  
+- Verify the ingest pipeline is enabled in your Elastic policy  
+- Ensure the path matches the `GEO_DB_PATH` defined in the honeypot script  
+
+To enable geographic enrichment:
 
 - Download the **GeoLite2 City** database from MaxMind  
 - Place the file at:
-  C:\HoneypotEngine\GeoLite2-City.mmdb
-
-  
-- Ensure the path matches the `GEO_DB_PATH` defined in the honeypot script
-
-If the GeoLite2 database is not installed, the honeypot will still function, but geo fields (country, city, coordinates) will be set to `"Unknown"`.
+C:\HoneypotEngine\GeoLite2-City.mmdb
 
 
-
-
+If the GeoLite2 database is not installed, the honeypot will still function normally, but geo fields (country, city, coordinates) will be set to `"Unknown"`.
