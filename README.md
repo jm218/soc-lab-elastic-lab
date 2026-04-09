@@ -112,7 +112,8 @@ Install Elastic Agent on:
 - **Honeypot EC2 instance** (this is where the Python listener will run)
 
 
-<img width="2519" height="1429" alt="Screenshot 2026-04-09 112220" src="https://github.com/user-attachments/assets/1390c955-1358-480d-ac93-0d236ebd1d54" />
+<img width="1737" height="569" alt="Screenshot 2026-04-09 164933" src="https://github.com/user-attachments/assets/6578f024-ac59-4ec9-b91e-4d2102e4103f" />
+
 
 
 ---
@@ -153,13 +154,72 @@ pip install flask waitress geoip2
 
 ## 7.4 Deploy Honeypot Code
 
+### Creating the Fake File Folder and Running the Script
+
+The honeypot engine and the fake corporate documents live in different folders.  
+The honeypot engine stays in its own directory, but the fake files must be placed in the **public** folder that the web portal serves.
+
+Create the public folder (if it doesn't already exist):
+
+```
+C:\HoneypotEngine\public\
+```
+
+Run the fake‑file script on the honeypot VM.  
+The script will automatically create the folder if needed and then generate all the decoy HR/Finance/IT documents inside:
+
+```
+C:\HoneypotEngine\public\
+```
+
+### Fake File Generation Script
+
+```powershell
+# Create fake corporate files that match the HR Portal screenshot
+$path = "C:\HoneypotEngine\public\"
+New-Item -ItemType Directory -Force -Path $path | Out-Null
+
+$files = @(
+    "Benefits_Overview.docx",
+    "Budget_Forecast_2024.xlsx",
+    "Compliance_Training_Overview.docx",
+    "Confidential_Project_Plan.pdf",
+    "Employee_Handbook_2024.pdf",
+    "Expense_Report_Template.xlsx",
+    "HR_Policies_2024.docx",
+    "IT_Security_Policy.pdf",
+    "Incident_Report_Form.pdf",
+    "Internal_Audit_Notes.pdf",
+    "Meeting_Minutes_Template.docx",
+    "NewHire_Onboarding_Checklist.docx",
+    "OrgChart_2024.png",
+    "Password_Reset_Guide.pdf",
+    "Payroll_Q1_2024.xlsx",
+    "Performance_Review_Form.docx",
+    "Server_Access_Request_Form.docx",
+    "Training_Schedule_2024.xlsx",
+    "Travel_Reimbursement_Form.pdf",
+    "VPN_Instructions.docx",
+    "index.html"
+)
+
+foreach ($file in $files) {
+    $full = Join-Path $path $file
+    "This is a placeholder decoy file for honeypot interaction." | Out-File $full -Encoding utf8
+}
+```
+
+This is the folder the HR Employee Portal reads from when showing the document list to attackers.
+
+
+
 Create folder:
 
 ```
 C:\HoneypotEngine\
 ```
 
-Place your honeypot script here:
+Place your honeypot.py script here:
 
 ```
 C:\HoneypotEngine\honeypot.py
@@ -686,15 +746,9 @@ Stop-Process -Id $np.Id -Force
 
 ---
 
-# 12. Fleet Coverage Verification
 
 
-<img src="YOUR-LINK-HERE" />
-
-
-
-
-# 13. What This Lab Demonstrates
+# 12. What This Lab Demonstrates
 
 By completing this project, you achieve:
 
@@ -708,7 +762,7 @@ By completing this project, you achieve:
 
 ---
 
-# 14. Future Enhancements
+# 13. Future Enhancements
 
 - Sigma rules  
 - Add Linux endpoints  
@@ -717,7 +771,7 @@ By completing this project, you achieve:
 
 ---
 
-# 15. Credits
+# 14. Credits
 
 Created as a hands‑on SOC learning environment using:
 
@@ -725,3 +779,63 @@ Created as a hands‑on SOC learning environment using:
 - Elastic Security  
 - Windows Server + AD  
 - Python Honeypot
+
+
+
+## Troubleshooting Guide
+
+### EC2 Connectivity Issues
+If your EC2 instances cannot talk to each other or the honeypot does not load, verify the Security Groups:
+
+- Ensure each instance allows inbound traffic from the other instances’ Security Groups.
+- Allow RDP (3389) only from your public IP.
+- Ensure the honeypot instance allows inbound HTTP (80) and HTTPS (443) from 0.0.0.0/0.
+
+### Honeypot Not Loading in Browser
+If the HR Portal does not load:
+
+- Confirm the honeypot script is running with no errors.
+- Make sure the Windows Firewall allows inbound port 80.
+- Use this PowerShell command to allow port 80:
+
+```powershell
+New-NetFirewallRule -DisplayName "Honeypot HTTP" -Direction Inbound -Protocol TCP -LocalPort 80 -Action Allow
+```
+
+### Elastic Agent Not Showing in Fleet
+If an agent is missing or offline:
+
+- Confirm the VM has internet access.
+- Re-run the Elastic Agent install command with the correct enrollment token.
+- Ensure no local firewall is blocking outbound traffic on ports 443 or 8220.
+
+### Honeypot Files Not Appearing in the HR Portal
+If the Shared Documents list is empty:
+
+- Make sure the fake-file script was run on the honeypot VM.
+- Verify the files exist in:
+
+```
+C:\HoneypotEngine\public\
+```
+
+- Restart the honeypot script if needed.
+
+### AD Endpoints Not Sending Logs
+If domain-joined machines show no telemetry:
+
+- Ensure Elastic Agent is installed with the correct policy.
+- Confirm the Windows Firewall allows outbound HTTPS.
+- Restart the Elastic Agent service:
+
+```powershell
+Restart-Service elastic-agent
+```
+
+### GeoIP Not Showing in Elastic
+If the map is empty:
+
+- Ensure the honeypot is receiving real external traffic.
+- Confirm the honeypot logs include the client IP field.
+- Verify the ingest pipeline is enabled in your Elastic policy.
+
